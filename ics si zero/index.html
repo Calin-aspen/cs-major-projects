@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X SI 0</title>
+</head>
+
+<body>
+  <h1 ID="head">
+    X SI 0
+  </h1>
+  <div id="dih">
+    <button id="btn1" onclick="btnf(1)" class="btn"><img src="ics.png" id="btn1imgX"><img src="zero.png"
+        id="btn1img0"></button>
+    <button id="btn2" onclick="btnf(2)" class="btn"><img src="ics.png" id="btn2imgX"><img src="zero.png"
+        id="btn2img0"></button> <button id="btn3" onclick="btnf(3)" class="btn"><img src="ics.png" id="btn3imgX"><img
+        src="zero.png" id="btn3img0"></button> <button id="btn4" onclick="btnf(4)" class="btn"><img src="ics.png"
+        id="btn4imgX"><img src="zero.png" id="btn4img0"></button>
+    <button id="btn5" onclick="btnf(5)" class="btn"><img src="ics.png" id="btn5imgX"><img src="zero.png"
+        id="btn5img0"></button> <button id="btn6" onclick="btnf(6)" class="btn"><img src="ics.png" id="btn6imgX"><img
+        src="zero.png" id="btn6img0"></button> <button id="btn7" onclick="btnf(7)" class="btn"><img src="ics.png"
+        id="btn7imgX"><img src="zero.png" id="btn7img0"></button> <button id="btn8" onclick="btnf(8)" class="btn"><img
+        src="ics.png" id="btn8imgX"><img src="zero.png" id="btn8img0"></button>
+    <button id="btn9" onclick="btnf(9)" class="btn"><img src="ics.png" id="btn9imgX"><img src="zero.png"
+        id="btn9img0"></button>
+
+  </div>
+  <h2 id="rezultat"></h2>
+</body>
+<style>
+  #head {
+    text-align: center;
+    color: cyan;
+    font-size: 60px;
+  }
+
+  #dih {
+    display: grid;
+
+    grid-template-columns: repeat(3, 150px);
+    /* 3 equal columns */
+    grid-template-rows: repeat(3, 1fr);
+    /* 3 equal rows */
+    gap: 10px;
+
+
+    justify-content: center;
+  }
+
+  .btn {
+    width: 150px;
+    height: 150px;
+    border: none;
+
+  }
+
+  .btn img {
+    display: none;
+    margin-left: 0px;
+    margin-top: 0px;
+    height: 150px;
+
+    width: 150px;
+    transform: translateX(-5px)
+  }
+
+  .btn:hover {
+    cursor: pointer;
+    border: 5px solid gray;
+  }
+
+  #rezultat {
+    text-align: center;
+    font-size: 3vw;
+  }
+</style>
+<script>
+  var poate_apasa = true;
+  var nr = 0;
+  function castig() {
+    document.getElementById("rezultat").innerText = "John pork(Ai castigat pentru cei care nu cunosc)";
+    poate_apasa = false; Math.floor(Math.random() * 10);
+    setTimeout(() => {location.href = location.href}, 1000);
+  }
+  function pierde() {
+    document.getElementById("rezultat").innerText = "Tim cheese(Ai pierdut pentru cei care nu cunosc)";
+    poate_apasa = false;
+    setTimeout(() => {location.href = location.href}, 1000);
+  }
+  function btnf(pos) {
+    if (poate_apasa) {
+      nr++;
+      var id = `btn${pos}imgX`
+      document.getElementById(id).style.display = "block";
+      poate_apasa = false;
+      if (document.getElementById(`btn1imgX`).style.display == 'block' && document.getElementById(`btn2imgX`).style.display == 'block' && document.getElementById(`btn3imgX`).style.display == 'block') {
+        castig(); return;
+      }
+      if (document.getElementById(`btn4imgX`).style.display == 'block' && document.getElementById(`btn5imgX`).style.display == 'block' && document.getElementById(`btn6imgX`).style.display == 'block') {
+        castig(); return;
+      }
+      if (document.getElementById(`btn7imgX`).style.display == 'block' && document.getElementById(`btn8imgX`).style.display == 'block' && document.getElementById(`btn9imgX`).style.display == 'block') {
+        castig(); return;
+      }
+      if (document.getElementById(`btn1imgX`).style.display == 'block' && document.getElementById(`btn4imgX`).style.display == 'block' && document.getElementById(`btn7imgX`).style.display == 'block') {
+        castig()
+        return;
+      }
+      if (document.getElementById(`btn2imgX`).style.display == 'block' && document.getElementById(`btn5imgX`).style.display == 'block' && document.getElementById(`btn8imgX`).style.display == 'block') {
+        castig();
+        return;
+      }
+      if (document.getElementById(`btn3imgX`).style.display == 'block' && document.getElementById(`btn6imgX`).style.display == 'block' && document.getElementById(`btn9imgX`).style.display == 'block') {
+        castig();
+        return;
+      }
+      if (document.getElementById(`btn1imgX`).style.display == 'block' && document.getElementById(`btn5imgX`).style.display == 'block' && document.getElementById(`btn9imgX`).style.display == 'block') {
+        castig()
+        return;
+      }
+      if (document.getElementById(`btn3imgX`).style.display == 'block' && document.getElementById(`btn5imgX`).style.display == 'block' && document.getElementById(`btn7imgX`).style.display == 'block') {
+        castig();
+        return;
+      }
+      //Math.floor(Math.random() * 10); Math.floor(Math.random() * 10);
+      //dih
+      if (nr == 9) {
+        document.getElementById("rezultat").innerText = "Ohio(Remiza pentru cei care nu cunosc)"
+        setTimeout(() => {location.href = location.href}, 1000);
+        poate_apasa = false;
+        return;
+      }
+      var x = Math.floor(Math.random() * 9) + 1;
+      while (document.getElementById(`btn${x}imgX`).style.display == "block" || document.getElementById(`btn${x}img0`).style.display == "block") {
+        x = Math.floor(Math.random() * 9) + 1;
+      }
+      id = `btn${x}img0`
+      setTimeout(() => {
+        document.getElementById(id).style.display = "block";
+        nr++;
+        if (document.getElementById(`btn1img0`).style.display == 'block' && document.getElementById(`btn2img0`).style.display == 'block' && document.getElementById(`btn3img0`).style.display == 'block') {
+          pierde();
+        }
+        if (document.getElementById(`btn4img0`).style.display == 'block' && document.getElementById(`btn5img0`).style.display == 'block' && document.getElementById(`btn6img0`).style.display == 'block') {
+          pierde();
+        }
+        if (document.getElementById(`btn7img0`).style.display == 'block' && document.getElementById(`btn8img0`).style.display == 'block' && document.getElementById(`btn9img0`).style.display == 'block') {
+          pierde();
+        }
+        if (document.getElementById(`btn1img0`).style.display == 'block' && document.getElementById(`btn4img0`).style.display == 'block' && document.getElementById(`btn7img0`).style.display == 'block') {
+          pierde();
+        }
+        if (document.getElementById(`btn2img0`).style.display == 'block' && document.getElementById(`btn5img0`).style.display == 'block' && document.getElementById(`btn8img0`).style.display == 'block') {
+          pierde();
+        }
+        if (document.getElementById(`btn3img0`).style.display == 'block' && document.getElementById(`btn6img0`).style.display == 'block' && document.getElementById(`btn9img0`).style.display == 'block') {
+          pierde();
+        }
+        if (document.getElementById(`btn1img0`).style.display == 'block' && document.getElementById(`btn5img0`).style.display == 'block' && document.getElementById(`btn9img0`).style.display == 'block') {
+          pierde();
+        }
+        if (document.getElementById(`btn3img0`).style.display == 'block' && document.getElementById(`btn5img0`).style.display == 'block' && document.getElementById(`btn7img0`).style.display == 'block') {
+          pierde();
+        }
+        poate_apasa = true;
+      }, 1000)
+    }
+  }
+</script>
+
+</html>
