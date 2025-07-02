@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minesweeper</title>
+  <style>
+    #head {
+      text-align: center;
+      font-size: xx-large;
+    }
+
+    #dih {
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      gap: 5px;
+      justify-content: center;
+      align-content: center;
+      width: fit-content;
+      margin: 50px auto;
+    }
+
+    .btn {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      overflow: hidden;
+    }
+
+    .btn img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      pointer-events: none;
+    }
+
+    .btn:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="head">Minesweeper</h1>
+  <div id="dih">    <button id="btn1" onclick="btnf(1)" class="btn"></button>
+  <button id="btn2" onclick="btnf(2)" class="btn"></button>
+  <button id="btn3" onclick="btnf(3)" class="btn"></button>
+  <button id="btn4" onclick="btnf(4)" class="btn"></button>
+  <button id="btn5" onclick="btnf(5)" class="btn"></button>
+  <button id="btn6" onclick="btnf(6)" class="btn"></button>
+  <button id="btn7" onclick="btnf(7)" class="btn"></button>
+  <button id="btn8" onclick="btnf(8)" class="btn"></button>
+  <button id="btn9" onclick="btnf(9)" class="btn"></button>
+  <button id="btn10" onclick="btnf(10)" class="btn"></button>
+  <button id="btn11" onclick="btnf(11)" class="btn"></button>
+  <button id="btn12" onclick="btnf(12)" class="btn"></button>
+  <button id="btn13" onclick="btnf(13)" class="btn"></button>
+  <button id="btn14" onclick="btnf(14)" class="btn"></button>
+  <button id="btn15" onclick="btnf(15)" class="btn"></button>
+  <button id="btn16" onclick="btnf(16)" class="btn"></button>
+  <button id="btn17" onclick="btnf(17)" class="btn"></button>
+  <button id="btn18" onclick="btnf(18)" class="btn"></button>
+  <button id="btn19" onclick="btnf(19)" class="btn"></button>
+  <button id="btn20" onclick="btnf(20)" class="btn"></button>
+  <button id="btn21" onclick="btnf(21)" class="btn"></button>
+  <button id="btn22" onclick="btnf(22)" class="btn"></button>
+  <button id="btn23" onclick="btnf(23)" class="btn"></button>
+  <button id="btn24" onclick="btnf(24)" class="btn"></button>
+  <button id="btn25" onclick="btnf(25)" class="btn"></button>
+  <button id="btn26" onclick="btnf(26)" class="btn"></button>
+  <button id="btn27" onclick="btnf(27)" class="btn"></button>
+  <button id="btn28" onclick="btnf(28)" class="btn"></button>
+  <button id="btn29" onclick="btnf(29)" class="btn"></button>
+  <button id="btn30" onclick="btnf(30)" class="btn"></button>
+  <button id="btn31" onclick="btnf(31)" class="btn"></button>
+  <button id="btn32" onclick="btnf(32)" class="btn"></button>
+  <button id="btn33" onclick="btnf(33)" class="btn"></button>
+  <button id="btn34" onclick="btnf(34)" class="btn"></button>
+  <button id="btn35" onclick="btnf(35)" class="btn"></button>
+  <button id="btn36" onclick="btnf(36)" class="btn"></button>
+  <button id="btn37" onclick="btnf(37)" class="btn"></button>
+  <button id="btn38" onclick="btnf(38)" class="btn"></button>
+  <button id="btn39" onclick="btnf(39)" class="btn"></button>
+  <button id="btn40" onclick="btnf(40)" class="btn"></button>
+  <button id="btn41" onclick="btnf(41)" class="btn"></button>
+  <button id="btn42" onclick="btnf(42)" class="btn"></button>
+  <button id="btn43" onclick="btnf(43)" class="btn"></button>
+  <button id="btn44" onclick="btnf(44)" class="btn"></button>
+  <button id="btn45" onclick="btnf(45)" class="btn"></button>
+  <button id="btn46" onclick="btnf(46)" class="btn"></button>
+  <button id="btn47" onclick="btnf(47)" class="btn"></button>
+  <button id="btn48" onclick="btnf(48)" class="btn"></button>
+  <button id="btn49" onclick="btnf(49)" class="btn"></button>
+  <button id="btn50" onclick="btnf(50)" class="btn"></button>
+  <button id="btn51" onclick="btnf(51)" class="btn"></button>
+  <button id="btn52" onclick="btnf(52)" class="btn"></button>
+  <button id="btn53" onclick="btnf(53)" class="btn"></button>
+  <button id="btn54" onclick="btnf(54)" class="btn"></button>
+  <button id="btn55" onclick="btnf(55)" class="btn"></button>
+  <button id="btn56" onclick="btnf(56)" class="btn"></button>
+  <button id="btn57" onclick="btnf(57)" class="btn"></button>
+  <button id="btn58" onclick="btnf(58)" class="btn"></button>
+  <button id="btn59" onclick="btnf(59)" class="btn"></button>
+  <button id="btn60" onclick="btnf(60)" class="btn"></button>
+  <button id="btn61" onclick="btnf(61)" class="btn"></button>
+  <button id="btn62" onclick="btnf(62)" class="btn"></button>
+  <button id="btn63" onclick="btnf(63)" class="btn"></button>
+  <button id="btn64" onclick="btnf(64)" class="btn"></button>
+  <button id="btn65" onclick="btnf(65)" class="btn"></button>
+  <button id="btn66" onclick="btnf(66)" class="btn"></button>
+  <button id="btn67" onclick="btnf(67)" class="btn"></button>
+  <button id="btn68" onclick="btnf(68)" class="btn"></button>
+  <button id="btn69" onclick="btnf(69)" class="btn"></button>
+  <button id="btn70" onclick="btnf(70)" class="btn"></button>
+  <button id="btn71" onclick="btnf(71)" class="btn"></button>
+  <button id="btn72" onclick="btnf(72)" class="btn"></button>
+  <button id="btn73" onclick="btnf(73)" class="btn"></button>
+  <button id="btn74" onclick="btnf(74)" class="btn"></button>
+  <button id="btn75" onclick="btnf(75)" class="btn"></button>
+  <button id="btn76" onclick="btnf(76)" class="btn"></button>
+  <button id="btn77" onclick="btnf(77)" class="btn"></button>
+  <button id="btn78" onclick="btnf(78)" class="btn"></button>
+  <button id="btn79" onclick="btnf(79)" class="btn"></button>
+  <button id="btn80" onclick="btnf(80)" class="btn"></button>
+  <button id="btn81" onclick="btnf(81)" class="btn"></button>
+  <button id="btn82" onclick="btnf(82)" class="btn"></button>
+  <button id="btn83" onclick="btnf(83)" class="btn"></button>
+  <button id="btn84" onclick="btnf(84)" class="btn"></button>
+  <button id="btn85" onclick="btnf(85)" class="btn"></button>
+  <button id="btn86" onclick="btnf(86)" class="btn"></button>
+  <button id="btn87" onclick="btnf(87)" class="btn"></button>
+  <button id="btn88" onclick="btnf(88)" class="btn"></button>
+  <button id="btn89" onclick="btnf(89)" class="btn"></button>
+  <button id="btn90" onclick="btnf(90)" class="btn"></button>
+  <button id="btn91" onclick="btnf(91)" class="btn"></button>
+  <button id="btn92" onclick="btnf(92)" class="btn"></button>
+  <button id="btn93" onclick="btnf(93)" class="btn"></button>
+  <button id="btn94" onclick="btnf(94)" class="btn"></button>
+  <button id="btn95" onclick="btnf(95)" class="btn"></button>
+  <button id="btn96" onclick="btnf(96)" class="btn"></button>
+  <button id="btn97" onclick="btnf(97)" class="btn"></button>
+  <button id="btn98" onclick="btnf(98)" class="btn"></button>
+  <button id="btn99" onclick="btnf(99)" class="btn"></button>
+  <button id="btn100" onclick="btnf(100)" class="btn"></button>
+  <button id="btn101" onclick="btnf(101)" class="btn"></button>
+  <button id="btn102" onclick="btnf(102)" class="btn"></button>
+  <button id="btn103" onclick="btnf(103)" class="btn"></button>
+  <button id="btn104" onclick="btnf(104)" class="btn"></button>
+  <button id="btn105" onclick="btnf(105)" class="btn"></button>
+  <button id="btn106" onclick="btnf(106)" class="btn"></button>
+  <button id="btn107" onclick="btnf(107)" class="btn"></button>
+  <button id="btn108" onclick="btnf(108)" class="btn"></button>
+  <button id="btn109" onclick="btnf(109)" class="btn"></button>
+  <button id="btn110" onclick="btnf(110)" class="btn"></button>
+  <button id="btn111" onclick="btnf(111)" class="btn"></button>
+  <button id="btn112" onclick="btnf(112)" class="btn"></button>
+  <button id="btn113" onclick="btnf(113)" class="btn"></button>
+  <button id="btn114" onclick="btnf(114)" class="btn"></button>
+  <button id="btn115" onclick="btnf(115)" class="btn"></button>
+  <button id="btn116" onclick="btnf(116)" class="btn"></button>
+  <button id="btn117" onclick="btnf(117)" class="btn"></button>
+  <button id="btn118" onclick="btnf(118)" class="btn"></button>
+  <button id="btn119" onclick="btnf(119)" class="btn"></button>
+  <button id="btn120" onclick="btnf(120)" class="btn"></button>
+  <button id="btn121" onclick="btnf(121)" class="btn"></button>
+  <button id="btn122" onclick="btnf(122)" class="btn"></button>
+  <button id="btn123" onclick="btnf(123)" class="btn"></button>
+  <button id="btn124" onclick="btnf(124)" class="btn"></button>
+  <button id="btn125" onclick="btnf(125)" class="btn"></button>
+  <button id="btn126" onclick="btnf(126)" class="btn"></button>
+  <button id="btn127" onclick="btnf(127)" class="btn"></button>
+  <button id="btn128" onclick="btnf(128)" class="btn"></button>
+  <button id="btn129" onclick="btnf(129)" class="btn"></button>
+  <button id="btn130" onclick="btnf(130)" class="btn"></button>
+  <button id="btn131" onclick="btnf(131)" class="btn"></button>
+  <button id="btn132" onclick="btnf(132)" class="btn"></button>
+  <button id="btn133" onclick="btnf(133)" class="btn"></button>
+  <button id="btn134" onclick="btnf(134)" class="btn"></button>
+  <button id="btn135" onclick="btnf(135)" class="btn"></button>
+  <button id="btn136" onclick="btnf(136)" class="btn"></button>
+  <button id="btn137" onclick="btnf(137)" class="btn"></button>
+  <button id="btn138" onclick="btnf(138)" class="btn"></button>
+  <button id="btn139" onclick="btnf(139)" class="btn"></button>
+  <button id="btn140" onclick="btnf(140)" class="btn"></button>
+  <button id="btn141" onclick="btnf(141)" class="btn"></button>
+  <button id="btn142" onclick="btnf(142)" class="btn"></button>
+  <button id="btn143" onclick="btnf(143)" class="btn"></button>
+  <button id="btn144" onclick="btnf(144)" class="btn"></button>
+  <button id="btn145" onclick="btnf(145)" class="btn"></button>
+  <button id="btn146" onclick="btnf(146)" class="btn"></button>
+  <button id="btn147" onclick="btnf(147)" class="btn"></button>
+  <button id="btn148" onclick="btnf(148)" class="btn"></button>
+  <button id="btn149" onclick="btnf(149)" class="btn"></button>
+  <button id="btn150" onclick="btnf(150)" class="btn"></button>
+  <button id="btn151" onclick="btnf(151)" class="btn"></button>
+  <button id="btn152" onclick="btnf(152)" class="btn"></button>
+  <button id="btn153" onclick="btnf(153)" class="btn"></button>
+  <button id="btn154" onclick="btnf(154)" class="btn"></button>
+  <button id="btn155" onclick="btnf(155)" class="btn"></button>
+  <button id="btn156" onclick="btnf(156)" class="btn"></button>
+  <button id="btn157" onclick="btnf(157)" class="btn"></button>
+  <button id="btn158" onclick="btnf(158)" class="btn"></button>
+  <button id="btn159" onclick="btnf(159)" class="btn"></button>
+  <button id="btn160" onclick="btnf(160)" class="btn"></button>
+  <button id="btn161" onclick="btnf(161)" class="btn"></button>
+  <button id="btn162" onclick="btnf(162)" class="btn"></button>
+  <button id="btn163" onclick="btnf(163)" class="btn"></button>
+  <button id="btn164" onclick="btnf(164)" class="btn"></button>
+  <button id="btn165" onclick="btnf(165)" class="btn"></button>
+  <button id="btn166" onclick="btnf(166)" class="btn"></button>
+  <button id="btn167" onclick="btnf(167)" class="btn"></button>
+  <button id="btn168" onclick="btnf(168)" class="btn"></button>
+  <button id="btn169" onclick="btnf(169)" class="btn"></button>
+  <button id="btn170" onclick="btnf(170)" class="btn"></button>
+  <button id="btn171" onclick="btnf(171)" class="btn"></button>
+  <button id="btn172" onclick="btnf(172)" class="btn"></button>
+  <button id="btn173" onclick="btnf(173)" class="btn"></button>
+  <button id="btn174" onclick="btnf(174)" class="btn"></button>
+  <button id="btn175" onclick="btnf(175)" class="btn"></button>
+  <button id="btn176" onclick="btnf(176)" class="btn"></button>
+  <button id="btn177" onclick="btnf(177)" class="btn"></button>
+  <button id="btn178" onclick="btnf(178)" class="btn"></button>
+  <button id="btn179" onclick="btnf(179)" class="btn"></button>
+  <button id="btn180" onclick="btnf(180)" class="btn"></button>
+  <button id="btn181" onclick="btnf(181)" class="btn"></button>
+  <button id="btn182" onclick="btnf(182)" class="btn"></button>
+  <button id="btn183" onclick="btnf(183)" class="btn"></button>
+  <button id="btn184" onclick="btnf(184)" class="btn"></button>
+  <button id="btn185" onclick="btnf(185)" class="btn"></button>
+  <button id="btn186" onclick="btnf(186)" class="btn"></button>
+  <button id="btn187" onclick="btnf(187)" class="btn"></button>
+  <button id="btn188" onclick="btnf(188)" class="btn"></button>
+  <button id="btn189" onclick="btnf(189)" class="btn"></button>
+  <button id="btn190" onclick="btnf(190)" class="btn"></button>
+  <button id="btn191" onclick="btnf(191)" class="btn"></button>
+  <button id="btn192" onclick="btnf(192)" class="btn"></button>
+  <button id="btn193" onclick="btnf(193)" class="btn"></button>
+  <button id="btn194" onclick="btnf(194)" class="btn"></button>
+  <button id="btn195" onclick="btnf(195)" class="btn"></button>
+  <button id="btn196" onclick="btnf(196)" class="btn"></button>
+  <button id="btn197" onclick="btnf(197)" class="btn"></button>
+  <button id="btn198" onclick="btnf(198)" class="btn"></button>
+  <button id="btn199" onclick="btnf(199)" class="btn"></button>
+  <button id="btn200" onclick="btnf(200)" class="btn"></button>
+  <button id="btn201" onclick="btnf(201)" class="btn"></button>
+  <button id="btn202" onclick="btnf(202)" class="btn"></button>
+  <button id="btn203" onclick="btnf(203)" class="btn"></button>
+  <button id="btn204" onclick="btnf(204)" class="btn"></button>
+  <button id="btn205" onclick="btnf(205)" class="btn"></button>
+  <button id="btn206" onclick="btnf(206)" class="btn"></button>
+  <button id="btn207" onclick="btnf(207)" class="btn"></button>
+  <button id="btn208" onclick="btnf(208)" class="btn"></button>
+  <button id="btn209" onclick="btnf(209)" class="btn"></button>
+  <button id="btn210" onclick="btnf(210)" class="btn"></button>
+  <button id="btn211" onclick="btnf(211)" class="btn"></button>
+  <button id="btn212" onclick="btnf(212)" class="btn"></button>
+  <button id="btn213" onclick="btnf(213)" class="btn"></button>
+  <button id="btn214" onclick="btnf(214)" class="btn"></button>
+  <button id="btn215" onclick="btnf(215)" class="btn"></button>
+  <button id="btn216" onclick="btnf(216)" class="btn"></button>
+  <button id="btn217" onclick="btnf(217)" class="btn"></button>
+  <button id="btn218" onclick="btnf(218)" class="btn"></button>
+  <button id="btn219" onclick="btnf(219)" class="btn"></button>
+  <button id="btn220" onclick="btnf(220)" class="btn"></button>
+  <button id="btn221" onclick="btnf(221)" class="btn"></button>
+  <button id="btn222" onclick="btnf(222)" class="btn"></button>
+  <button id="btn223" onclick="btnf(223)" class="btn"></button>
+  <button id="btn224" onclick="btnf(224)" class="btn"></button>
+  <button id="btn225" onclick="btnf(225)" class="btn"></button>
+</div>
+
+  <script>
+    const size = 15;
+    const totalCells = size * size;
+    const mineCount = 30;
+    let matrice = Array.from({ length: size }, () => Array(size).fill(0));
+    const dirx = [-1, -1, -1, 0, 0, 1, 1, 1, 0];
+    const diry = [-1, 0, 1, -1, 1, -1, 0, 1, 0];
+    let arata = Array.from({ length: size }, () => Array(size).fill(false));
+    let minesPlaced = 0;
+    let used = new Set();
+    while (minesPlaced < mineCount) {
+      const x = Math.floor(Math.random() * totalCells);
+      const row = Math.floor(x / size);
+      const col = x % size;
+      if (!used.has(x)) {
+        matrice[row][col] = 30;
+        used.add(x);
+        for (let d = 0; d < 8; d++) {
+          const nx = row + dirx[d];
+          const ny = col + diry[d];
+          if (nx >= 0 && nx < size && ny >= 0 && ny < size && matrice[nx][ny] < 30) {
+            matrice[nx][ny]++;
+          }
+        }
+        minesPlaced++;
+      }
+    }
+
+    function esteValida(x, y) {
+      return x >= 0 && x < size && y >= 0 && y < size;
+    }
+    dirx1 = [1,-1,0,0]
+    diry1 = [0,0,1,-1]
+    function btnf(id) {
+      const row = Math.floor((id - 1) / size);
+      const col = (id - 1) % size;
+      if (arata[row][col]) return;
+      arata[row][col] = true;
+      const val = matrice[row][col];
+      const btn = document.getElementById(`btn${id}`);
+
+      if (val >= 30) {
+        btn.innerHTML = "<img src='image0_large.jpg'>";
+        alert("💣 Ai pierdut, Porculescu Ion 💣");
+        setTimeout(() => {location.href = location.href}, 100);
+        return;
+      }
+
+      if (val > 0) {
+        btn.innerHTML = `<img src='Minesweeper_${val}.svg.png'>`;
+        return;
+      }
+      const queue = [[row, col]];
+      while (queue.length > 0) {
+        const [x, y] = queue.shift();
+        const btnId = x * size + y + 1;
+        const currentBtn = document.getElementById(`btn${btnId}`);
+        if (!arata[x][y]) {
+          arata[x][y] = true;
+          currentBtn.style.backgroundColor = "red";
+          if (matrice[x][y] > 0) {
+            currentBtn.innerHTML = `<img src='Minesweeper_${matrice[x][y]}.svg.png'>`;
+            continue;
+          }
+        }
+        currentBtn.style.backgroundColor = "red";
+        for (let d = 0; d < 4; d++) {
+          const nx = x + dirx1[d];
+          const ny = y + diry1[d];
+          if (esteValida(nx, ny) && !arata[nx][ny]) {
+            arata[nx][ny] = true;
+            const nid = nx * size + ny + 1;
+            const nbtn = document.getElementById(`btn${nid}`);
+            if (matrice[nx][ny] == 0) {
+              nbtn.style.backgroundColor = "red";
+              queue.push([nx, ny]);
+            } else if (matrice[nx][ny] < 30) {
+              nbtn.innerHTML = `<img src='Minesweeper_${matrice[nx][ny]}.svg.png'>`;
+            }
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
