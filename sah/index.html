@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sah</title>
+  <style>
+    #head {
+      text-align: center;
+      font-size: 60px;
+    }
+
+    .chess-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      width: fit-content;
+    }
+
+    #letter-column {
+      display: flex;
+      flex-direction: column-reverse;
+      height: 400px;
+      margin-right: 10px;
+    }
+
+    #letter-column span {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      width: 30px;
+    }
+
+    #dih {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      width: fit-content;
+    }
+
+    .nr2 {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      font-size: 16px;
+      background-color: #654321;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      overflow: hidden;
+    }
+
+    .nr1 {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      font-size: 16px;
+      background-color: #F2F0DF;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      overflow: hidden;
+    }
+
+    /* Top row */
+    #btn1,
+    #btn2,
+    #btn3,
+    #btn4,
+    #btn5,
+    #btn6,
+    #btn7,
+    #btn8 {
+      border-top: 3px solid #5C4033;
+    }
+
+    /* Bottom row */
+    #btn57,
+    #btn58,
+    #btn59,
+    #btn60,
+    #btn61,
+    #btn62,
+    #btn63,
+    #btn64 {
+      border-bottom: 3px solid #5C4033;
+    }
+
+    /* Left column */
+    #btn1,
+    #btn9,
+    #btn17,
+    #btn25,
+    #btn33,
+    #btn41,
+    #btn49,
+    #btn57 {
+      border-left: 3px solid #5C4033;
+    }
+
+    /* Right column */
+    #btn8,
+    #btn16,
+    #btn24,
+    #btn32,
+    #btn40,
+    #btn48,
+    #btn56,
+    #btn64 {
+      border-right: 3px solid #5C4033;
+    }
+
+    /* Corner buttons */
+    #btn1 {
+      border-top: 3px solid #5C4033;
+      border-left: 3px solid #5C4033;
+    }
+
+    #btn8 {
+      border-top: 3px solid #5C4033;
+      border-right: 3px solid #5C4033;
+    }
+
+    #btn57 {
+      border-bottom: 3px solid #5C4033;
+      border-left: 3px solid #5C4033;
+    }
+
+    #btn64 {
+      border-bottom: 3px solid #5C4033;
+      border-right: 3px solid #5C4033;
+    }
+
+    /* Alternate button colors */
+    .nr1 {
+      background-color: #f0d9b5;
+    }
+
+    .nr2 {
+      background-color: #b58863;
+    }
+
+    #let1 {
+      display: flex;
+      width: 400px;
+      font-size: 24px;
+      margin: 0 auto;
+      justify-content: center;
+      /* Center inside container */
+      position: relative;
+      left: 25px;
+      /* Move slightly to the right */
+    }
+
+    #let1 span {
+      flex: 0 0 50px;
+      text-align: center;
+    }
+    .piesa{
+      transform: translateX(-7px);
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="head">Sah</h1>
+
+  <div class="chess-wrapper">
+    <div id="letter-column">
+      <span>A</span><span>B</span><span>C</span><span>D</span>
+      <span>E</span><span>F</span><span>G</span><span>H</span>
+    </div>
+
+    <div id="dih">
+      <button id="btn1" onclick="btnf(1)" class="nr1"></button>
+      <button id="btn2" onclick="btnf(2)" class="nr2"></button>
+      <button id="btn3" onclick="btnf(3)" class="nr1"></button>
+      <button id="btn4" onclick="btnf(4)" class="nr2"></button>
+      <button id="btn5" onclick="btnf(5)" class="nr1"></button>
+      <button id="btn6" onclick="btnf(6)" class="nr2"></button>
+      <button id="btn7" onclick="btnf(7)" class="nr1"></button>
+      <button id="btn8" onclick="btnf(8)" class="nr2"></button>
+      <button id="btn9" onclick="btnf(9)" class="nr2"></button>
+      <button id="btn10" onclick="btnf(10)" class="nr1"></button>
+      <button id="btn11" onclick="btnf(11)" class="nr2"></button>
+      <button id="btn12" onclick="btnf(12)" class="nr1"></button>
+      <button id="btn13" onclick="btnf(13)" class="nr2"></button>
+      <button id="btn14" onclick="btnf(14)" class="nr1"></button>
+      <button id="btn15" onclick="btnf(15)" class="nr2"></button>
+      <button id="btn16" onclick="btnf(16)" class="nr1"></button>
+      <button id="btn17" onclick="btnf(17)" class="nr1"></button>
+      <button id="btn18" onclick="btnf(18)" class="nr2"></button>
+      <button id="btn19" onclick="btnf(19)" class="nr1"></button>
+      <button id="btn20" onclick="btnf(20)" class="nr2"></button>
+      <button id="btn21" onclick="btnf(21)" class="nr1"></button>
+      <button id="btn22" onclick="btnf(22)" class="nr2"></button>
+      <button id="btn23" onclick="btnf(23)" class="nr1"></button>
+      <button id="btn24" onclick="btnf(24)" class="nr2"></button>
+      <button id="btn25" onclick="btnf(25)" class="nr2"></button>
+      <button id="btn26" onclick="btnf(26)" class="nr1"></button>
+      <button id="btn27" onclick="btnf(27)" class="nr2"></button>
+      <button id="btn28" onclick="btnf(28)" class="nr1"></button>
+      <button id="btn29" onclick="btnf(29)" class="nr2"></button>
+      <button id="btn30" onclick="btnf(30)" class="nr1"></button>
+      <button id="btn31" onclick="btnf(31)" class="nr2"></button>
+      <button id="btn32" onclick="btnf(32)" class="nr1"></button>
+      <button id="btn33" onclick="btnf(33)" class="nr1"></button>
+      <button id="btn34" onclick="btnf(34)" class="nr2"></button>
+      <button id="btn35" onclick="btnf(35)" class="nr1"></button>
+      <button id="btn36" onclick="btnf(36)" class="nr2"></button>
+      <button id="btn37" onclick="btnf(37)" class="nr1"></button>
+      <button id="btn38" onclick="btnf(38)" class="nr2"></button>
+      <button id="btn39" onclick="btnf(39)" class="nr1"></button>
+      <button id="btn40" onclick="btnf(40)" class="nr2"></button>
+      <button id="btn41" onclick="btnf(41)" class="nr2"></button>
+      <button id="btn42" onclick="btnf(42)" class="nr1"></button>
+      <button id="btn43" onclick="btnf(43)" class="nr2"></button>
+      <button id="btn44" onclick="btnf(44)" class="nr1"></button>
+      <button id="btn45" onclick="btnf(45)" class="nr2"></button>
+      <button id="btn46" onclick="btnf(46)" class="nr1"></button>
+      <button id="btn47" onclick="btnf(47)" class="nr2"></button>
+      <button id="btn48" onclick="btnf(48)" class="nr1"></button>
+      <button id="btn49" onclick="btnf(49)" class="nr1"></button>
+      <button id="btn50" onclick="btnf(50)" class="nr2"></button>
+      <button id="btn51" onclick="btnf(51)" class="nr1"></button>
+      <button id="btn52" onclick="btnf(52)" class="nr2"></button>
+      <button id="btn53" onclick="btnf(53)" class="nr1"></button>
+      <button id="btn54" onclick="btnf(54)" class="nr2"></button>
+      <button id="btn55" onclick="btnf(55)" class="nr1"></button>
+      <button id="btn56" onclick="btnf(56)" class="nr2"></button>
+      <button id="btn57" onclick="btnf(57)" class="nr2"></button>
+      <button id="btn58" onclick="btnf(58)" class="nr1"></button>
+      <button id="btn59" onclick="btnf(59)" class="nr2"></button>
+      <button id="btn60" onclick="btnf(60)" class="nr1"></button>
+      <button id="btn61" onclick="btnf(61)" class="nr2"></button>
+      <button id="btn62" onclick="btnf(62)" class="nr1"></button>
+      <button id="btn63" onclick="btnf(63)" class="nr2"></button>
+      <button id="btn64" onclick="btnf(64)" class="nr1"></button>
+    </div>
+  </div>
+
+  <p id="let1">
+    <span>1</span><span>2</span><span>3</span><span>4</span>
+    <span>5</span><span>6</span><span>7</span><span>8</span>
+  </p>
+</body>
+<script src = "script.js"></script>
+</html>
